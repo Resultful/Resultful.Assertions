@@ -47,13 +47,13 @@ jobs:
           restore-keys: nuget-${{ runner.os }}-
 
       - name: Restore
-        run: dotnet restore FluentAssertions.Resultful.sln
+        run: dotnet restore Resultful.Assertions.slnx
 
       - name: Build
-        run: dotnet build FluentAssertions.Resultful.sln --configuration Release --no-restore -p:ContinuousIntegrationBuild=true
+        run: dotnet build Resultful.Assertions.slnx --configuration Release --no-restore -p:ContinuousIntegrationBuild=true
 
       - name: Test
-        run: dotnet test FluentAssertions.Resultful.sln --configuration Release --no-build --logger "trx" --results-directory TestResults
+        run: dotnet test Resultful.Assertions.slnx --configuration Release --no-build --logger "trx" --results-directory TestResults
 
       - name: Upload test results
         if: always()
@@ -64,7 +64,7 @@ jobs:
           if-no-files-found: ignore
 
       - name: Pack
-        run: dotnet pack FluentAssertions.Resultful.sln --configuration Release --no-build -p:ContinuousIntegrationBuild=true -o artifacts
+        run: dotnet pack Resultful.Assertions.slnx --configuration Release --no-build -p:ContinuousIntegrationBuild=true -o artifacts
 
       - name: Upload packages
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
