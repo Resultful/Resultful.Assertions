@@ -29,7 +29,7 @@ in more detail.
 | **Rename** to `Resultful.Assertions` ([decision 1](decisions/0001-repository-is-resultful-assertions.md)), keeping package IDs ([decision 2](decisions/0002-package-ids-are-kept.md)); solution as `.slnx`. | #10 |
 | **CI to the core repository's standard**: least privilege, `persist-credentials: false`, SDK from `global.json`, zizmor, ls-lint, Dependabot. | #9 |
 | **Vision and docs bundle.** | #12 |
-| **Publish only what changed** (R1, [decision 4](decisions/0004-publish-only-what-changed.md)): per-package versions and `<PackageId>/v<version>` tags, a release plan on every build, a package-shape check, and a manual publish job on `main` that pushes and tags only the planned packages. | this pull request |
+| **Publish only what changed** (R1, [decision 4](decisions/0004-publish-only-what-changed.md)): per-package versions and `<PackageId>/v<version>` tags, a release plan on every build, a package-shape check, and a manual publish job on `main` that pushes and tags only the planned packages. | #15 |
 
 ## Known issues
 
