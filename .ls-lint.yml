@@ -20,10 +20,8 @@ ls:
 
   # Source and test projects: PascalCase files and folders; partial files use dotted segments
   # (AssertionExtensions.Should.cs). Project folders are dotted package IDs.
-  "{src,tests}":
-    .dir: regex:[A-Z][A-Za-z0-9]*(\.[A-Z][A-Za-z0-9]*)*
   "{src,tests}/**":
-    .dir: PascalCase | regex:[A-Z][A-Za-z0-9]*(\.[A-Z][A-Za-z0-9]*)*
+    .dir: PascalCase | regex:[A-Z][A-Za-z0-9]*(\.[A-Z][A-Za-z0-9]*)* | regex:(src|tests)
     .cs: regex:[A-Z][A-Za-z0-9]*(\.[A-Z][A-Za-z0-9]*)*
     .csproj: regex:[A-Z][A-Za-z0-9]*(\.[A-Z][A-Za-z0-9]*)*
 
