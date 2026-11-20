@@ -1,4 +1,8 @@
-# FLUENTASSERTIONS.RESULTFUL
+# RESULTFUL.ASSERTIONS
+
+Assertion packages for result, option and union types (OneOf, Resultful and others) across assertion libraries.
+Formerly `FluentAssertions.Resultful`; package IDs never change with the repository name. The vision, roadmap
+and decisions are in [docs/](docs/index.md).
 
 ## 🛑 Repository Conventions & Workflow Policy
 
@@ -11,6 +15,6 @@
 
 ## Development Commands
 
-- Build solution: `~/.dotnet/dotnet build FluentAssertions.Resultful.sln`
-- Run tests: `~/.dotnet/dotnet test FluentAssertions.Resultful.sln`
+- Build solution: `~/.dotnet/dotnet build Resultful.Assertions.slnx`
+- Run tests: `~/.dotnet/dotnet test Resultful.Assertions.slnx`
 - Pack: `~/.dotnet/dotnet pack -c Release`
