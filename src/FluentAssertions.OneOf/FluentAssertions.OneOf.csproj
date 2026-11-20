@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net10.0;netstandard2.0</TargetFrameworks>
+    <Version>0.0.6-beta01</Version>
     <Description>Extension to FluentAssertions which improves the usage of OneOf to allow easier unit testing.</Description>
   </PropertyGroup>
 
