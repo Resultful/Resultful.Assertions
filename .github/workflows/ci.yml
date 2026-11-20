@@ -35,7 +35,7 @@ jobs:
           fetch-depth: 0 # SourceLink and the package's repository commit
 
       - name: Setup .NET SDK
-        uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
+        uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6.1.0
         with:
           global-json-file: global.json
 
@@ -57,7 +57,7 @@ jobs:
 
       - name: Upload test results
         if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: test-results
           path: TestResults
@@ -67,7 +67,7 @@ jobs:
         run: dotnet pack Resultful.Assertions.slnx --configuration Release --no-build -p:ContinuousIntegrationBuild=true -o artifacts
 
       - name: Upload packages
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: packages
           path: artifacts
@@ -89,7 +89,7 @@ jobs:
         uses: ls-lint/action@a87c5eb4fb26d7af1bd0adba203dd1e76f7e94eb # v2.3.2
 
       - name: Setup uv
-        uses: astral-sh/setup-uv@d4b2f3b6ecc6e67c4457f6d3e41ec42d3d0fcb86 # v5.4.2
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
 
       - name: Audit workflows (zizmor)
         run: uvx zizmor@1.31.1 --offline --format github .
