@@ -19,3 +19,5 @@ generated:
 - Decisions 1 and 2 (the rename; package IDs are kept) recorded as the maintainer's. Decisions 3 (a
   library-independent core plus adapters) and 4 (publish only what changed) proposed.
 - Known issue recorded: `FluentAssertions.Resultful` waits on `Resultful 0.2.0-beta06` for the NU1903 fix.
+- Publishing only what changed implemented (decision 4): `eng/release-plan.cs`, `eng/verify-package.cs` and a
+  manual publish job. R1 is now the first tagged release.

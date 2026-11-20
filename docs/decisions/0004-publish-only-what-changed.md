@@ -43,7 +43,8 @@ whose code changed, never the whole repository.
   maintainer decides whether to bump them in the same release. This is how a package can be held back
   (`FluentAssertions.Resultful` is, until `Resultful 0.2.0-beta06` is published).
 - **Publishing is a manual workflow run on `main`** with `publish` ticked. Merging never publishes. The build job
-  computes the plan, packs, and runs the package check (`eng/verify-package.cs`). The publish job pushes only the
+  computes the plan, packs, and runs the package check (`eng/verify-package.cs`), which is stricter for the
+packages in the plan. The publish job pushes only the
   planned packages and then tags them. `dotnet nuget push --skip-duplicate` remains as a safety net, not the
   mechanism.
 
@@ -51,7 +52,18 @@ whose code changed, never the whole repository.
 
 Nothing has been released from this repository with a tag. The last published version of all four packages is
 `0.0.6-beta01`, and the code has changed since. The packages start at that version with no tags, so the plan
-reports all four as pending. The first release bumps the ones the maintainer wants to ship.
+reports all four as pending. The first release bumps the ones the maintainer wants to ship. Because a package
+with no tag counts as changed, a package can't be released before the in-repo packages it references; the first
+release of `FluentAssertions.OneOf` includes `FluentAssertions.Union`, for example.
+
+## If a publish run fails part way
+
+Packages are pushed referenced-first, then tagged. If a push or the tagging step fails, use **Re-run failed jobs**
+on the same run: it reuses the same plan and packages, `--skip-duplicate` skips what was already pushed, and the
+tags are created for all of them. Don't start a fresh run instead. A package already on nuget.org drops out of
+a new plan, so it would never be tagged, and it would show as pending, failing the plan for the packages that
+depend on it. If a fresh run has already happened, tag the pushed versions by hand at the commit they were built
+from.
 
 ## Alternatives considered
 

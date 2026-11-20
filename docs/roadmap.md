@@ -28,7 +28,8 @@ in more detail.
 | **Stop publishing on push.** The old workflow packed every project as `1.0.0` and pushed it on each merge to `main`; it only failed because the API key was rejected. | #9 |
 | **Rename** to `Resultful.Assertions` ([decision 1](decisions/0001-repository-is-resultful-assertions.md)), keeping package IDs ([decision 2](decisions/0002-package-ids-are-kept.md)); solution as `.slnx`. | #10 |
 | **CI to the core repository's standard**: least privilege, `persist-credentials: false`, SDK from `global.json`, zizmor, ls-lint, Dependabot. | #9 |
-| **Vision and docs bundle.** | this pull request |
+| **Vision and docs bundle.** | #12 |
+| **Publish only what changed** (R1, [decision 4](decisions/0004-publish-only-what-changed.md)): per-package versions and `<PackageId>/v<version>` tags, a release plan on every build, a package-shape check, and a manual publish job on `main` that pushes and tags only the planned packages. | this pull request |
 
 ## Known issues
 
@@ -42,18 +43,16 @@ in more detail.
 
 ## Next
 
-### R1. Publish only what changed
+### R1. The first tagged release
 
-[Decision 4](decisions/0004-publish-only-what-changed.md). Each package declares its own version; a release tags
-each published package as `<PackageId>/v<version>`. CI computes, on every pull request, which packages changed
-since their last tag and which have a new version to publish. The manual publish run pushes only those.
+Publishing only what changed is in place (see Done). Nothing has been released from this repository with a tag:
+the last published version of all four packages is `0.0.6-beta01`, and the code has changed since (the .NET 10
+upgrade), so the release plan reports all four as pending. The first release is a pull request that bumps the
+versions to ship, then a manual run with `publish` ticked. A package with no tag counts as changed, so
+`FluentAssertions.OneOf` can't be released before `FluentAssertions.Union`, which it references (the plan fails
+the build if it is tried); release them together.
 
-Done when: a release that bumps one package publishes exactly that package, and the plan is visible on every pull
-request.
-
-The first release after this lands will publish every package whose version is bumped. Nothing has been
-released since `0.0.6-beta01`, and the code has changed since (the .NET 10 upgrade), so all four are reported as
-changed until their versions are bumped.
+Done when: every package that ships has a `<PackageId>/v<version>` tag.
 
 ### R2. A library-independent `Resultful.Assertions` core, with adapters
 
@@ -88,6 +87,6 @@ ID: `FluentAssertions.OneOf`, `FluentAssertions.OneOf.Extended` and `FluentAsser
 
 - A per-package README, so each NuGet page describes its own package and a README edit doesn't mark every package
   as changed.
-- A `release` environment with required reviewers on the publish job (it doesn't exist in this repository yet).
+- Required reviewers on the `release` environment the publish job uses. GitHub creates the environment, unprotected, on the first publish run; add the reviewers (and move the `NUGET_KEY` secret into it) before that.
 - NuGet trusted publishing (`NuGet/login` with `id-token: write`) instead of the org `NUGET_KEY` secret.
 - Restore the commented-out structural comparison in `FluentAssertions.OneOf`, or remove it.
