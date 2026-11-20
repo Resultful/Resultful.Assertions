@@ -6,7 +6,7 @@
 //
 // Usage: dotnet run eng/release-plan.cs -- [--nuget] [--out <file>] [--summary <file>]
 //   --nuget      also treat a version already on nuget.org as released (CI always passes it)
-//   --out        write the packages to publish, one "<id> <version>" per line
+//   --out        write the packages to publish, one "<id> <version>" per line, referenced packages first
 //   --summary    append the plan as Markdown (pass $GITHUB_STEP_SUMMARY)
 //
 // Each packable project under src/ declares <Version>. A release is tagged "<PackageId>/v<version>".
@@ -122,7 +122,10 @@ foreach (var row in rows.Where(r => r.State == "publish"))
     }
 }
 
-var publish = rows.Where(r => r.State == "publish").ToList();
+// Referenced packages first: a package's closure is strictly larger than that of anything it references, so
+// this is a dependency order. The publish job pushes in this order, so a failed push never leaves a package on
+// nuget.org pointing at a sibling version that isn't there.
+var publish = rows.Where(r => r.State == "publish").OrderBy(r => Closure(r.Project).Count).ThenBy(r => r.Project.Id, StringComparer.Ordinal).ToList();
 var table = new List<string>
 {
     "| Package | Version | Last release | State | Changed since last release |",
@@ -133,9 +136,11 @@ table.AddRange(rows.Select(r => $"| `{r.Project.Id}` | {r.Project.Version.ToNorm
 var markdown = new List<string> { "## Release plan", "" };
 markdown.AddRange(table);
 markdown.Add("");
-markdown.Add(publish.Count == 0
-    ? "Nothing to publish: no package has a new version. Bump `<Version>` in a pending package's project to release it."
-    : $"A manual publish run on `main` would push: {string.Join(", ", publish.Select(r => $"`{r.Project.Id} {r.Project.Version.ToNormalizedString()}`"))}.");
+markdown.Add(errors.Count > 0
+    ? "The plan has errors (below); nothing can be published until they are fixed."
+    : publish.Count == 0
+        ? "Nothing to publish: no package has a new version. Bump `<Version>` in a pending package's project to release it."
+        : $"A manual publish run on `main` would push, in this order: {string.Join(", ", publish.Select(r => $"`{r.Project.Id} {r.Project.Version.ToNormalizedString()}`"))}.");
 if (!nuget)
 {
     markdown.Add("");

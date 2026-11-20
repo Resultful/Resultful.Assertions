@@ -39,6 +39,7 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0 # SourceLink and the package's repository commit
+          fetch-tags: true # the release plan diffs each package against its "<id>/v<version>" tag
 
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0

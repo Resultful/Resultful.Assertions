@@ -56,6 +56,15 @@ reports all four as pending. The first release bumps the ones the maintainer wan
 with no tag counts as changed, a package can't be released before the in-repo packages it references; the first
 release of `FluentAssertions.OneOf` includes `FluentAssertions.Union`, for example.
 
+## If a publish run fails part way
+
+Packages are pushed referenced-first, then tagged. If a push or the tagging step fails, use **Re-run failed jobs**
+on the same run: it reuses the same plan and packages, `--skip-duplicate` skips what was already pushed, and the
+tags are created for all of them. Don't start a fresh run instead. A package already on nuget.org drops out of
+a new plan, so it would never be tagged, and it would show as pending, failing the plan for the packages that
+depend on it. If a fresh run has already happened, tag the pushed versions by hand at the commit they were built
+from.
+
 ## Alternatives considered
 
 - **MinVer with per-package tag prefixes.** It computes versions from tags and commit height, so every commit
