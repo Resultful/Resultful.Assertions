@@ -32,7 +32,7 @@ union packages.
 | **CI to the core repository's standard**: least privilege, `persist-credentials: false`, SDK from `global.json`, zizmor, ls-lint, Dependabot. | #9 |
 | **Vision and docs bundle.** | #12 |
 | **Publish only what changed** (R1, [decision 4](decisions/0004-publish-only-what-changed.md)): per-package versions and `<PackageId>/v<version>` tags, a release plan on every build, a package-shape check, and a manual publish job on `main` that pushes and tags only the planned packages. | #15 |
-| **Rename** to `Union.Assertions` ([decision 5](decisions/0005-repository-is-union-assertions.md)), keeping package IDs; solution as `Union.Assertions.slnx`. R2 and R3 moved to Resultful/Resultful. | this pull request |
+| **Rename** to `Union.Assertions` ([decision 5](decisions/0005-repository-is-union-assertions.md)), keeping package IDs; solution as `Union.Assertions.slnx`. R2 and R3 moved to Resultful/Resultful. | #18 |
 
 ## Known issues
 
@@ -67,7 +67,7 @@ in-repo core.
 
 ### R3. Deprecate `FluentAssertions.Resultful`
 
-Moved to Resultful/Resultful, with R2: it is deprecated on NuGet in favour of
+Moved to Resultful/Resultful, with R2: it is to be deprecated on NuGet in favour of
 `Resultful.Assertions.FluentAssertions` once that is published. Removing the project from this repository is R6.
 
 ### R4. More assertion libraries and more types

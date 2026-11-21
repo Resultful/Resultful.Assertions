@@ -17,7 +17,7 @@ own types (`Resultful.Assertions` and its adapters) are built in the Resultful r
 | `FluentAssertions.OneOf` | [![NuGet](https://img.shields.io/nuget/v/FluentAssertions.OneOf.svg)](https://www.nuget.org/packages/FluentAssertions.OneOf/) | [OneOf](https://github.com/mcintyre321/OneOf) unions, with FluentAssertions |
 | `FluentAssertions.OneOf.Extended` | [![NuGet](https://img.shields.io/nuget/v/FluentAssertions.OneOf.Extended.svg)](https://www.nuget.org/packages/FluentAssertions.OneOf.Extended/) | `OneOf.Extended` (9 to 32 cases), with FluentAssertions |
 | `FluentAssertions.Union` | [![NuGet](https://img.shields.io/nuget/v/FluentAssertions.Union.svg)](https://www.nuget.org/packages/FluentAssertions.Union/) | Any union-like type (anything with a `Match`/`Switch`), with FluentAssertions; the base the others build on |
-| `FluentAssertions.Resultful` | [![NuGet](https://img.shields.io/nuget/v/FluentAssertions.Resultful.svg)](https://www.nuget.org/packages/FluentAssertions.Resultful/) | Deprecated: [Resultful](https://github.com/Resultful/Resultful) results. Still built here until it is deprecated on NuGet in favour of `Resultful.Assertions.FluentAssertions` |
+| `FluentAssertions.Resultful` | [![NuGet](https://img.shields.io/nuget/v/FluentAssertions.Resultful.svg)](https://www.nuget.org/packages/FluentAssertions.Resultful/) | [Resultful](https://github.com/Resultful/Resultful) results. To be deprecated on NuGet in favour of `Resultful.Assertions.FluentAssertions`, and built here until then |
 
 More assertion libraries (AwesomeAssertions, Shouldly, TUnit) for OneOf and unions are planned; see the [roadmap](docs/roadmap.md).
 

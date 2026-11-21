@@ -45,10 +45,10 @@ Assertions for [Resultful](https://github.com/Resultful/Resultful)'s own types l
 
 - **Not an assertion library.** It extends assertion libraries; it doesn't compete with them.
 - **Not where Resultful's assertions live.** Those are built beside Resultful's core. The OneOf and union
-  packages never depend on Resultful; the deprecated `FluentAssertions.Resultful` is still built here until it is
-  deprecated on NuGet.
-- **Not a test framework adapter.** Packages that are independent of an assertion library throw an exception that
-  every test framework already reports as a failure.
+  packages never depend on Resultful. `FluentAssertions.Resultful` is still built here until it is deprecated on
+  NuGet.
+- **Not a test framework adapter.** Each package extends an assertion library, and the assertion library reports
+  failures to the test framework.
 
 ## Who it is for
 
