@@ -20,6 +20,9 @@ generated:
 - Decision 3 (a library-independent core plus adapters) is superseded by Resultful decision 18. The roadmap's R2
   and R3 now point there; R6 (remove `FluentAssertions.Resultful` once it is deprecated) is added.
 - The vision is narrowed to OneOf and union types.
+- `FluentAssertions.Resultful` is removed from the repository (decision 6, R6), with its tests, the `Resultful`
+  package version and the package check's `Resultful` floor. The NU1903 known issue goes with it. Its last
+  published version stays on NuGet.
 
 ## 2026-11-20
 

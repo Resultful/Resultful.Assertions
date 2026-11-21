@@ -23,7 +23,7 @@ and to `Union.Assertions` ([decision 5](0005-repository-is-union-assertions.md))
 | `FluentAssertions.OneOf` | yes | About 388,000 downloads, by far the most used package in the family, and mostly used without Resultful. |
 | `FluentAssertions.OneOf.Extended` | yes | |
 | `FluentAssertions.Union` | yes | The base the OneOf packages build on. |
-| `FluentAssertions.Resultful` | yes, until deprecated | To be deprecated on NuGet in favour of `Resultful.Assertions.FluentAssertions`, which is built in Resultful/Resultful ([Resultful decision 18](https://github.com/Resultful/Resultful/blob/main/docs/decisions/0018-resultful-assertions-live-here.md)). That decision, not either rename, deprecates it. |
+| `FluentAssertions.Resultful` | yes, until deprecated | Removed from this repository ([decision 6](0006-fluentassertions-resultful-is-removed.md)); the ID and its published versions stay on NuGet. To be deprecated in favour of `Resultful.Assertions.FluentAssertions`, which is built in Resultful/Resultful ([Resultful decision 18](https://github.com/Resultful/Resultful/blob/main/docs/decisions/0018-resultful-assertions-live-here.md)). That decision, not either rename, deprecates it. |
 
 Why:
 - A package ID is a contract with every project that references it. Changing it forces every user to edit their

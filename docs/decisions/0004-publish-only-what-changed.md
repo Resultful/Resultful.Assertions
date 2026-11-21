@@ -41,7 +41,7 @@ whose code changed, never the whole repository.
   nuget.org that doesn't contain the code it was built against.
 - **Dependants are reported, not forced.** When a shared project is bumped, its dependants show as pending. The
   maintainer decides whether to bump them in the same release. This is how a package can be held back
-  (`FluentAssertions.Resultful` is, until `Resultful 0.2.0-beta06` is published).
+  (`FluentAssertions.Resultful` was, until it was removed by [decision 6](0006-fluentassertions-resultful-is-removed.md)).
 - **Publishing is a manual workflow run on `main`** with `publish` ticked. Merging never publishes. The build job
   computes the plan, packs, and runs the package check (`eng/verify-package.cs`), which is stricter for the
 packages in the plan. The publish job pushes only the
@@ -50,9 +50,9 @@ packages in the plan. The publish job pushes only the
 
 ## Bootstrapping
 
-Nothing has been released from this repository with a tag. The last published version of all four packages is
+Nothing has been released from this repository with a tag. The last published version of all three packages is
 `0.0.6-beta01`, and the code has changed since. The packages start at that version with no tags, so the plan
-reports all four as pending. The first release bumps the ones the maintainer wants to ship. Because a package
+reports all three as pending. The first release bumps the ones the maintainer wants to ship. Because a package
 with no tag counts as changed, a package can't be released before the in-repo packages it references; the first
 release of `FluentAssertions.OneOf` includes `FluentAssertions.Union`, for example.
 

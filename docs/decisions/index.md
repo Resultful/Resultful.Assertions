@@ -21,3 +21,4 @@ which. A new decision takes the next number. `proposed` decisions wait for the m
 | 3 | [A library-independent core plus one adapter per assertion library](0003-core-plus-adapters.md) (superseded by [Resultful decision 18](https://github.com/Resultful/Resultful/blob/main/docs/decisions/0018-resultful-assertions-live-here.md)) | proposed | 20 November 2026 |
 | 4 | [Publish only what changed](0004-publish-only-what-changed.md) | proposed | 20 November 2026 |
 | 5 | [The repository is `Union.Assertions`](0005-repository-is-union-assertions.md) (supersedes 1) | stable | 21 November 2026 |
+| 6 | [`FluentAssertions.Resultful` is removed from this repository](0006-fluentassertions-resultful-is-removed.md) (changes 5) | stable | 21 November 2026 |
