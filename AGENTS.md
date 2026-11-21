@@ -1,7 +1,8 @@
-# RESULTFUL.ASSERTIONS
+# UNION.ASSERTIONS
 
-Assertion packages for result, option and union types (OneOf, Resultful and others) across assertion libraries.
-Formerly `FluentAssertions.Resultful`; package IDs never change with the repository name. The vision, roadmap
+Assertion packages for OneOf and other union types across assertion libraries. Formerly `Resultful.Assertions`
+and before that `FluentAssertions.Resultful`; package IDs never change with the repository name. Assertions for
+Resultful's own types live in [Resultful/Resultful](https://github.com/Resultful/Resultful). The vision, roadmap
 and decisions are in [docs/](docs/index.md).
 
 ## 🛑 Repository Conventions & Workflow Policy
@@ -15,6 +16,6 @@ and decisions are in [docs/](docs/index.md).
 
 ## Development Commands
 
-- Build solution: `~/.dotnet/dotnet build Resultful.Assertions.slnx`
-- Run tests: `~/.dotnet/dotnet test Resultful.Assertions.slnx`
+- Build solution: `~/.dotnet/dotnet build Union.Assertions.slnx`
+- Run tests: `~/.dotnet/dotnet test Union.Assertions.slnx`
 - Pack: `~/.dotnet/dotnet pack -c Release`

@@ -54,13 +54,13 @@ jobs:
           restore-keys: nuget-${{ runner.os }}-
 
       - name: Restore
-        run: dotnet restore Resultful.Assertions.slnx
+        run: dotnet restore Union.Assertions.slnx
 
       - name: Build
-        run: dotnet build Resultful.Assertions.slnx --configuration Release --no-restore -p:ContinuousIntegrationBuild=true
+        run: dotnet build Union.Assertions.slnx --configuration Release --no-restore -p:ContinuousIntegrationBuild=true
 
       - name: Test
-        run: dotnet test Resultful.Assertions.slnx --configuration Release --no-build --logger "trx" --results-directory TestResults
+        run: dotnet test Union.Assertions.slnx --configuration Release --no-build --logger "trx" --results-directory TestResults
 
       - name: Upload test results
         if: always()
@@ -71,7 +71,7 @@ jobs:
           if-no-files-found: ignore
 
       - name: Pack
-        run: dotnet pack Resultful.Assertions.slnx --configuration Release --no-build -p:ContinuousIntegrationBuild=true -o artifacts
+        run: dotnet pack Union.Assertions.slnx --configuration Release --no-build -p:ContinuousIntegrationBuild=true -o artifacts
 
       # Which packages changed since their release tag, and which have a new version to publish.
       # Fails if a version goes backwards or a package would ship against a changed, unreleased dependency.

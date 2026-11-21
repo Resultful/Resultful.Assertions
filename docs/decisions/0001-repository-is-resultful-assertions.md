@@ -3,7 +3,7 @@ type: decision
 title: "The repository is Resultful.Assertions"
 description: "FluentAssertions.Resultful is renamed Resultful.Assertions: the home for assertion packages for result, option and union types across assertion libraries."
 status: stable
-tags: [resultful-assertions, decision]
+tags: [union-assertions, decision]
 decided:
   by: human:rtkelly13
   at: 2026-11-20
@@ -13,6 +13,9 @@ generated:
 ---
 
 # 1. The repository is `Resultful.Assertions`
+
+> Superseded by [decision 5](0005-repository-is-union-assertions.md): the repository is renamed
+> `Resultful/Union.Assertions`, because the assertions for Resultful's own types moved to Resultful/Resultful.
 
 The maintainer chose the name. `Resultful/FluentAssertions.Resultful` is renamed `Resultful/Resultful.Assertions`
 (#10). It holds many assertion projects: assertions for result, option and union types (OneOf, Resultful and
