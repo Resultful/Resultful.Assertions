@@ -1,13 +1,14 @@
-# Resultful.Assertions
+# Union.Assertions
 
-[![ci](https://github.com/Resultful/Resultful.Assertions/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Resultful/Resultful.Assertions/actions/workflows/ci.yml)
+[![ci](https://github.com/Resultful/Union.Assertions/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Resultful/Union.Assertions/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-Assertions for result, option and union types, in the assertion library your tests already use. A failure that
-is a value (a `Result`, a `OneOf`, an option) should be as easy to assert on as an exception.
+Assertions for OneOf and other union types, in the assertion library your tests already use. Checking which case
+a union holds, and the value in it, should be as easy as asserting on anything else.
 
-This repository was called `FluentAssertions.Resultful`. GitHub redirects the old URLs, and every package keeps
-its ID.
+This repository was called `Resultful.Assertions`, and before that `FluentAssertions.Resultful`. GitHub redirects
+the old URLs, and every package keeps its ID. Assertions for [Resultful](https://github.com/Resultful/Resultful)'s
+own types (`Resultful.Assertions` and its adapters) are built in the Resultful repository.
 
 ## Packages
 
@@ -16,9 +17,9 @@ its ID.
 | `FluentAssertions.OneOf` | [![NuGet](https://img.shields.io/nuget/v/FluentAssertions.OneOf.svg)](https://www.nuget.org/packages/FluentAssertions.OneOf/) | [OneOf](https://github.com/mcintyre321/OneOf) unions, with FluentAssertions |
 | `FluentAssertions.OneOf.Extended` | [![NuGet](https://img.shields.io/nuget/v/FluentAssertions.OneOf.Extended.svg)](https://www.nuget.org/packages/FluentAssertions.OneOf.Extended/) | `OneOf.Extended` (9 to 32 cases), with FluentAssertions |
 | `FluentAssertions.Union` | [![NuGet](https://img.shields.io/nuget/v/FluentAssertions.Union.svg)](https://www.nuget.org/packages/FluentAssertions.Union/) | Any union-like type (anything with a `Match`/`Switch`), with FluentAssertions; the base the others build on |
-| `FluentAssertions.Resultful` | [![NuGet](https://img.shields.io/nuget/v/FluentAssertions.Resultful.svg)](https://www.nuget.org/packages/FluentAssertions.Resultful/) | [Resultful](https://github.com/Resultful/Resultful) results, with FluentAssertions |
+| `FluentAssertions.Resultful` | [![NuGet](https://img.shields.io/nuget/v/FluentAssertions.Resultful.svg)](https://www.nuget.org/packages/FluentAssertions.Resultful/) | [Resultful](https://github.com/Resultful/Resultful) results. To be deprecated on NuGet in favour of `Resultful.Assertions.FluentAssertions`, and built here until then |
 
-More assertion libraries (AwesomeAssertions, Shouldly, TUnit) are planned; see the [roadmap](docs/roadmap.md).
+More assertion libraries (AwesomeAssertions, Shouldly, TUnit) for OneOf and unions are planned; see the [roadmap](docs/roadmap.md).
 
 The packages build against FluentAssertions 7.x. FluentAssertions 8 and later is commercially licensed, so a
 project that resolves 8 or later carries that licence.
@@ -49,8 +50,10 @@ option.ShouldBeNone();
 
 ### Resultful
 
-`FluentAssertions.Resultful` currently gives `result.Should()` access to the subject only. Success and failure
-assertions (`ShouldSucceed`, `ShouldFail`) are planned; see the [roadmap](docs/roadmap.md).
+`FluentAssertions.Resultful` gives `result.Should()` access to the subject only, and gets no new assertions.
+Success and failure assertions for Resultful (`ShouldSucceed`, `ShouldFail`) are being built as
+`Resultful.Assertions` and its adapters in [Resultful/Resultful](https://github.com/Resultful/Resultful)
+([its decision 18](https://github.com/Resultful/Resultful/blob/main/docs/decisions/0018-resultful-assertions-live-here.md)).
 
 ## Documentation
 
@@ -60,6 +63,6 @@ assertions (`ShouldSucceed`, `ShouldFail`) are planned; see the [roadmap](docs/r
 ## Building
 
 ```sh
-dotnet build Resultful.Assertions.slnx
-dotnet test Resultful.Assertions.slnx
+dotnet build Union.Assertions.slnx
+dotnet test Union.Assertions.slnx
 ```

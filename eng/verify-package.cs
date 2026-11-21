@@ -138,7 +138,7 @@ foreach (var path in packages)
     }
 
     var repository = metadata.Element(ns + "repository");
-    if ((string?)repository?.Attribute("url") != "https://github.com/Resultful/Resultful.Assertions.git")
+    if ((string?)repository?.Attribute("url") != "https://github.com/Resultful/Union.Assertions.git")
     {
         failures.Add("missing or wrong repository url");
     }

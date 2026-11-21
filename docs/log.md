@@ -1,15 +1,25 @@
 ---
 type: log
 title: "Log"
-description: "What changed in the Resultful.Assertions documents, by date."
+description: "What changed in the Union.Assertions documents, by date."
 status: stable
-tags: [resultful-assertions, log]
+tags: [union-assertions, log]
 generated:
   by: claude-opus-5.5
   at: 2026-11-20
 ---
 
 # Log
+
+## 2026-11-21
+
+- The repository is renamed from `Resultful.Assertions` to `Union.Assertions` (decision 5, superseding decision 1),
+  following [Resultful decision 18](https://github.com/Resultful/Resultful/blob/main/docs/decisions/0018-resultful-assertions-live-here.md),
+  which moved the assertions for Resultful's own types into Resultful/Resultful. Package IDs are unchanged
+  (decision 2).
+- Decision 3 (a library-independent core plus adapters) is superseded by Resultful decision 18. The roadmap's R2
+  and R3 now point there; R6 (remove `FluentAssertions.Resultful` once it is deprecated) is added.
+- The vision is narrowed to OneOf and union types.
 
 ## 2026-11-20
 

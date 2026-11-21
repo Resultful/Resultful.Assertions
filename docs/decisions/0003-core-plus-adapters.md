@@ -3,7 +3,7 @@ type: decision
 title: "A library-independent core plus one adapter per assertion library"
 description: "New Resultful assertions ship as Resultful.Assertions (no assertion library) plus Resultful.Assertions.<Library> adapters, with each adapter referencing the lowest library version it supports."
 status: proposed
-tags: [resultful-assertions, decision, packages, licensing]
+tags: [union-assertions, decision, packages, licensing]
 decided:
   by: ""
   at: 2026-11-20
@@ -13,6 +13,10 @@ generated:
 ---
 
 # 3. A library-independent core plus one adapter per assertion library
+
+> Superseded by [Resultful decision 18](https://github.com/Resultful/Resultful/blob/main/docs/decisions/0018-resultful-assertions-live-here.md):
+> `Resultful.Assertions` and its adapters are built in Resultful/Resultful, against the in-repo core, with this
+> shape. The pattern can still extend to the OneOf and union packages here.
 
 Proposed. The shape for new Resultful assertion packages:
 

@@ -3,7 +3,7 @@ type: decision
 title: "Publish only what changed"
 description: "Each package has its own version and release tags; CI works out which packages changed and which have a new version, and a manual run on main publishes only those."
 status: proposed
-tags: [resultful-assertions, decision, release, ci]
+tags: [union-assertions, decision, release, ci]
 decided:
   by: ""
   at: 2026-11-20
