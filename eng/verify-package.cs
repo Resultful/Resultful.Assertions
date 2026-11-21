@@ -13,8 +13,6 @@
 //   - has a OneOf or OneOf.Extended floor below 3.0.271 (older OneOf pulls NETStandard.Library 1.6.1, NU1903)
 //   - has a FluentAssertions floor of 8 or above (8+ is commercially licensed; these packages target 7.x)
 //   - lacks the MIT licence expression, the README, the repository url and commit (SourceLink), or a .snupkg
-// Warns (an error if the package is in the plan) when the Resultful floor is below 0.2.0-beta06: beta05
-// carries NU1903 for consumers (docs/roadmap.md, known issues).
 
 using System.IO.Compression;
 using System.Xml.Linq;
@@ -44,7 +42,6 @@ if (packages.Count == 0)
 }
 
 var minOneOf = NuGetVersion.Parse("3.0.271");
-var minResultful = NuGetVersion.Parse("0.2.0-beta06");
 string[] banned = ["NETStandard.Library", "System.ValueTuple"];
 string[] frameworks = ["netstandard2.0", "net10.0"];
 var exit = 0;
@@ -108,11 +105,6 @@ foreach (var path in packages)
         if (depId.Equals("FluentAssertions", StringComparison.OrdinalIgnoreCase) && (floor is null || floor.Major >= 8))
         {
             failures.Add($"FluentAssertions floor {text} is 8 or above (commercially licensed)");
-        }
-
-        if (depId.Equals("Resultful", StringComparison.OrdinalIgnoreCase) && (floor is null || floor < minResultful))
-        {
-            (inPlan ? failures : warnings).Add($"Resultful floor {text} is below {minResultful} (NU1903 for consumers)");
         }
     }
 

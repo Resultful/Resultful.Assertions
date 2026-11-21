@@ -12,13 +12,11 @@
     <File Path="src/CreateFile.linq" />
     <Project Path="src/FluentAssertions.OneOf.Extended/FluentAssertions.OneOf.Extended.csproj" />
     <Project Path="src/FluentAssertions.OneOf/FluentAssertions.OneOf.csproj" />
-    <Project Path="src/FluentAssertions.Resultful/FluentAssertions.Resultful.csproj" />
     <Project Path="src/FluentAssertions.Union/FluentAssertions.Union.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/FluentAssertions.OneOf.Tests/FluentAssertions.OneOf.Tests.csproj" />
     <Project Path="tests/FluentAssertions.Optional.Tests/FluentAssertions.Optional.Tests.csproj" />
-    <Project Path="tests/FluentAssertions.Resultful.Tests/FluentAssertions.Resultful.Tests.csproj" />
     <Project Path="tests/FluentAssertions.Union.Tests/FluentAssertions.Union.Tests.csproj" />
   </Folder>
 </Solution>

@@ -27,7 +27,8 @@ and future adapters for other assertion libraries), none of which depend on Resu
 - The local clone moves from `~/code/Resultful/Resultful.Assertions` to `~/code/Resultful/Union.Assertions`, and
   the estate registry (rig) and Orca follow.
 - `FluentAssertions.Resultful` stays in this repository until it is deprecated on NuGet; it gets no new
-  assertions.
+  assertions. (Changed the same day by [decision 6](0006-fluentassertions-resultful-is-removed.md): it is
+  removed now.)
 
 Why:
 - [Resultful decision 18](https://github.com/Resultful/Resultful/blob/main/docs/decisions/0018-resultful-assertions-live-here.md)

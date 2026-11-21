@@ -17,7 +17,6 @@ own types (`Resultful.Assertions` and its adapters) are built in the Resultful r
 | `FluentAssertions.OneOf` | [![NuGet](https://img.shields.io/nuget/v/FluentAssertions.OneOf.svg)](https://www.nuget.org/packages/FluentAssertions.OneOf/) | [OneOf](https://github.com/mcintyre321/OneOf) unions, with FluentAssertions |
 | `FluentAssertions.OneOf.Extended` | [![NuGet](https://img.shields.io/nuget/v/FluentAssertions.OneOf.Extended.svg)](https://www.nuget.org/packages/FluentAssertions.OneOf.Extended/) | `OneOf.Extended` (9 to 32 cases), with FluentAssertions |
 | `FluentAssertions.Union` | [![NuGet](https://img.shields.io/nuget/v/FluentAssertions.Union.svg)](https://www.nuget.org/packages/FluentAssertions.Union/) | Any union-like type (anything with a `Match`/`Switch`), with FluentAssertions; the base the others build on |
-| `FluentAssertions.Resultful` | [![NuGet](https://img.shields.io/nuget/v/FluentAssertions.Resultful.svg)](https://www.nuget.org/packages/FluentAssertions.Resultful/) | [Resultful](https://github.com/Resultful/Resultful) results. To be deprecated on NuGet in favour of `Resultful.Assertions.FluentAssertions`, and built here until then |
 
 More assertion libraries (AwesomeAssertions, Shouldly, TUnit) for OneOf and unions are planned; see the [roadmap](docs/roadmap.md).
 
@@ -50,10 +49,11 @@ option.ShouldBeNone();
 
 ### Resultful
 
-`FluentAssertions.Resultful` gives `result.Should()` access to the subject only, and gets no new assertions.
-Success and failure assertions for Resultful (`ShouldSucceed`, `ShouldFail`) are being built as
-`Resultful.Assertions` and its adapters in [Resultful/Resultful](https://github.com/Resultful/Resultful)
-([its decision 18](https://github.com/Resultful/Resultful/blob/main/docs/decisions/0018-resultful-assertions-live-here.md)).
+`FluentAssertions.Resultful` was built here until it was removed ([decision 6](docs/decisions/0006-fluentassertions-resultful-is-removed.md)).
+Its last version, `0.0.6-beta01`, stays on NuGet and is to be deprecated in favour of
+`Resultful.Assertions.FluentAssertions`. Success and failure assertions for Resultful (`ShouldSucceed`,
+`ShouldFail`) are being built as `Resultful.Assertions` and its adapters in
+[Resultful/Resultful](https://github.com/Resultful/Resultful) ([its decision 18](https://github.com/Resultful/Resultful/blob/main/docs/decisions/0018-resultful-assertions-live-here.md)).
 
 ## Documentation
 
